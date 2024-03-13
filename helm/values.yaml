@@ -1,0 +1,13 @@
+MSR:
+  FQDN: <image registry dynamic DNS>
+  port: 4443
+
+DB:
+  tag: '1.0'
+
+API:
+  repo: 'engineering/api-build'
+  tag: 'demo'
+
+environment:
+  host: 'staging'

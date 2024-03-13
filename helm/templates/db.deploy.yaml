@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: postgres
+        image: {{ .Values.MSR.FQDN }}:{{ .Values.MSR.port }}/engineering/db:{{ .Values.DB.tag }}
+      nodeSelector:
+        kubernetes.io/hostname: {{.Values.environment.host}}
